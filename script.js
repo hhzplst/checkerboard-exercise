@@ -5,13 +5,13 @@ for(var i=0; i<100; i++){
 	newDiv.style.float = "left";
 	newDiv.style.paddingBotom = "11.1%";
 	newDiv.style.width = "11.1%";
-	newDiv.style.height = "150px";
+	newDiv.style.height = "150px";	
 
 	if(i%2 === 0){
-		newDiv.style.backgroundColor = getRandomColor();
+		newDiv.style.background = getGradient();
 		document.body.appendChild(newDiv);
 	}else{
-		newDiv.style.backgroundColor = getRandomColor();
+		newDiv.style.background = getGradient();
 		document.body.appendChild(newDiv);
 	}
 }
@@ -23,4 +23,8 @@ function getRandomColor() {
         color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
+}
+
+function getGradient(){
+	return "linear-gradient(to right, " +getRandomColor() +"," + getRandomColor() +" )";
 }
