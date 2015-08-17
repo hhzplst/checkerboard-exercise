@@ -1,5 +1,6 @@
 // Your JS goes here
 
+
 for(var i=0; i<100; i++){
 	var newDiv = document.createElement("div"); 
 	newDiv.style.float = "left";
@@ -8,13 +9,15 @@ for(var i=0; i<100; i++){
 	newDiv.style.height = "150px";	
 
 	if(i%2 === 0){
-		newDiv.style.background = getGradient();
+		newDiv.style.backgroundColor = getRandomColor();
 		document.body.appendChild(newDiv);
 	}else{
-		newDiv.style.background = getGradient();
+		newDiv.style.backgroundColor = getRandomColor();
 		document.body.appendChild(newDiv);
 	}
 }
+
+setInterval(flashColor, 2000);
 
 function getRandomColor() {
     var letters = '0123456789ABCDEF'.split('');
@@ -25,6 +28,11 @@ function getRandomColor() {
     return color;
 }
 
-function getGradient(){
-	return "linear-gradient(to right, " +getRandomColor() +"," + getRandomColor() +" )";
+function flashColor(){
+	for(var i=0; i<100; i++){
+		document.getElementsByTagName("div")[i].style.backgroundColor = getRandomColor();
+	}
 }
+
+
+
